@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import {Text, View } from 'react-native';
 
-const Header = () => {
+const HomepageHeader = () => {
     return(
     <View>
         <Text>
@@ -11,4 +11,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default HomepageHeader;
