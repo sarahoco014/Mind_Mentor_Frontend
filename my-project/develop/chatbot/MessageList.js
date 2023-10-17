@@ -1,7 +1,23 @@
+const MessageList = ({chat}) => {
 
-const MessageList = () => {
-    return
+    const mappedChats = chat.messages.map((message, index) => {
+        return (
+        
+
+
+        <Text key = {index}> 
+            {message.text}
+        </Text>
+
+        )
+    })
+
+    return(<View>
+
+        {mappedChats}
+
+    </View>
+
+    )
 }
-
-
 export default MessageList;

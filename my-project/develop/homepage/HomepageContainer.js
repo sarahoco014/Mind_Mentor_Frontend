@@ -14,7 +14,8 @@ const HomepageContainer = ({navigation}) => {
         return (
    
          <View>
-            <Button title = "chat button" />
+            <Button title = "chat button" 
+            onPress={() => navigation.navigate('ChatContainer')}/>
             <Button title = "resources" 
             onPress={() => navigation.navigate('ResourcesContainer')}/>
 

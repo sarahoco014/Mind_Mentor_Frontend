@@ -1,21 +1,19 @@
-
-
+import MessageList from "./MessageList";
+import {useState, useEffect} from 'react'
+import { View, Button } from "react-native";
 
 
 const ChatContainer = () => {
     
     const [chats, setChats] = useState([]);
 
-    const fetchChats = async () => {
-        const response = await fetch("http://localhost:8080/chats/1")
+    const fetchAllChats = async () => {
+        const response = await fetch("http://localhost:8080/chats/all")
         const data = await response.json();
         setChats(data);
     }
 
     const postMessage = async () => {
-
-        
-
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -28,20 +26,17 @@ const ChatContainer = () => {
         
         const response = await fetch("http://localhost:8080/messages?chatId=1", requestOptions)}
     
-    useEffect(()=> {fetchChats()}, []);
+    useEffect(()=> {fetchAllChats()}, []);
     
 
 
     return (
         <View>
-            
-
+            <MessageList chat = {chats[0]}/>
         </View>
             
 
     )
 }
-
-
 
 export default ChatContainer;

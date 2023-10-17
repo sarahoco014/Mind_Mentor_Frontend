@@ -6,6 +6,7 @@ import HomepageContainer from './develop/homepage/HomepageContainer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ResourcesContainer from './develop/resources/ResourcesContainer';
+import ChatContainer from './develop/chatbot/ChatContainer';
 
 
 const Stack = createStackNavigator();
@@ -18,7 +19,7 @@ export default function App() {
           <Stack.Navigator initialRouteName='HomepageContainer'> 
             <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
             <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
-            
+            <Stack.Screen name = "ChatContainer" component={ChatContainer}/>
           </Stack.Navigator>
       </NavigationContainer>
 
