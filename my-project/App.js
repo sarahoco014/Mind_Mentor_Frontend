@@ -5,6 +5,7 @@ import HomepageHeader from './develop/homepage/HomepageHeader';
 import HomepageContainer from './develop/homepage/HomepageContainer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import ResourcesContainer from './develop/resources/ResourcesContainer';
 
 
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ export default function App() {
           <NavigationContainer>
           <Stack.Navigator initialRouteName='HomepageContainer'> 
             <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
+            <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
             
           </Stack.Navigator>
       </NavigationContainer>
