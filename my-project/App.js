@@ -3,15 +3,30 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HomepageHeader from './develop/homepage/HomepageHeader';
 import HomepageContainer from './develop/homepage/HomepageContainer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-    <HomepageHeader/>
-    <HomepageContainer/>
-      {/* <Text>Mind Mentor to start working on your app!</Text> */}
-      <StatusBar style="auto" />
-    </View>
+
+          <NavigationContainer>
+          <Stack.Navigator initialRouteName='HomepageContainer'> 
+            <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
+            
+          </Stack.Navigator>
+      </NavigationContainer>
+
+
+    // <View style={styles.container}>
+    // <HomepageHeader/>
+    // <HomepageContainer/>
+    //   {/* <Text>Mind Mentor to start working on your app!</Text> */}
+    //   <StatusBar style="auto" />
+    // </View>
   );
 }
 
