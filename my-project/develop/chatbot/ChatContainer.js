@@ -1,17 +1,27 @@
 import MessageList from "./MessageList";
 import {useState, useEffect} from 'react'
-import { View, Button } from "react-native";
+import { View, Text, Button } from "react-native";
 
 
 const ChatContainer = () => {
     
     const [chats, setChats] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
 
     const fetchAllChats = async () => {
+        try {
         const response = await fetch("http://localhost:8080/chats/all")
         const data = await response.json();
         setChats(data);
     }
+    catch(error) {
+   console.error('error: ', error);
+   setError('error occurred')
+}
+}
+
+
 
     const postMessage = async () => {
         const requestOptions = {
@@ -32,11 +42,12 @@ const ChatContainer = () => {
 
     return (
         <View>
-            <MessageList chat = {chats[0]}/>
+            {loading ? <Text>Loading...</Text> : <MessageList chat={chats[0]} />}
         </View>
+    );
             
 
-    )
+    
 }
 
 export default ChatContainer;
