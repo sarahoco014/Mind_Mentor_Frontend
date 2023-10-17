@@ -11,15 +11,16 @@ const ChatContainer = () => {
 
     const fetchAllChats = async () => {
         try {
-        const response = await fetch("http://localhost:8080/chats/all")
-        const data = await response.json();
-        setChats(data);
+            const response = await fetch("http://localhost:8080/chats/all");
+            const data = await response.json();
+            setChats(data);
+            setLoading(false);
+        } catch(error) {
+            console.error('error: ', error);
+            setError('Error occurred');
+            setLoading(false);
+        }
     }
-    catch(error) {
-   console.error('error: ', error);
-   setError('error occurred')
-}
-}
 
 
 

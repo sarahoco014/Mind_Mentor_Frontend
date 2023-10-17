@@ -1,3 +1,5 @@
+import { View, Text } from "react-native";
+
 const MessageList = ({chat}) => {
 
     if (!chat || !chat.messages) {
