@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-const UserMessage = ({message}) => {
+const UserMessage = ({message, style}) => {
     return (
         <View>
-            <Text>
+            <Text style={style}>
               {message}
             </Text>
         </View>

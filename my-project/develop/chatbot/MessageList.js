@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import BotMessage from "./BotMessage";
 import UserMessage from "./UserMessage";
+import messageStyle from "./MessageStyle";
 
 const MessageList = ({chat}) => {
 
@@ -13,14 +14,14 @@ const MessageList = ({chat}) => {
         if (message.bot === true) {
             return (
                 <BotMessage
-                // style={botMessageStyle}
+                style={messageStyle.bot}
                 message = {message.message}
                 key = {index}/>
             )
         } else {
             return (
                 <UserMessage
-                // style={userMessageStyle}
+                style={messageStyle.user}
                 message = {message.message}
                 key = {index}/>
             )
