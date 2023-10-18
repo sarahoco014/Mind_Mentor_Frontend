@@ -11,7 +11,7 @@ const ChatContainer = () => {
 
     const fetchAllChats = async () => {
         try {
-            const response = await fetch("http://localhost:8080/chats/all");
+            const response = await fetch("http://10.0.2.2:8080/chats/all");
             const data = await response.json();
             setChats(data);
             setLoading(false);
@@ -35,7 +35,7 @@ const ChatContainer = () => {
         };
         // POST request
         
-        const response = await fetch("http://localhost:8080/messages?chatId=1", requestOptions)}
+        const response = await fetch("http://10.0.2.2:8080/messages?chatId=1", requestOptions)}
     
     useEffect(()=> {fetchAllChats()}, []);
     
