@@ -1,6 +1,7 @@
 import MessageList from "./MessageList";
 import {useState, useEffect} from 'react'
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, ScrollView } from "react-native";
+import messageStyle from "./MessageStyle";
 
 
 const ChatContainer = () => {
@@ -42,9 +43,9 @@ const ChatContainer = () => {
 
 
     return (
-        <View>
+        < ScrollView style = {messageStyle.container}>
             {loading ? <Text>Loading...</Text> : <MessageList chat={chats[0]} />}
-        </View>
+        </ScrollView>
     );
             
 
