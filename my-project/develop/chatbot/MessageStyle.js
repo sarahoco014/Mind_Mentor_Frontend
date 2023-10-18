@@ -34,6 +34,33 @@ const messageStyle = StyleSheet.create({
     color: 'white', // Text color for messages
     fontSize: 16,
   },
+
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: 'white', // Background color for the input container
+        padding: 10,
+        borderTopWidth: 1,
+        borderTopColor: '#ccc',
+    },
+    input: {
+        flex: 1,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#f4f4f4', // Input background color
+    },
+    sendButton: {
+        marginLeft: 10,
+        padding: 10,
+        backgroundColor: 'blue', // Send button background color
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+    buttonText: {
+        color: 'white'
+    }
 });
 
 export default messageStyle;
