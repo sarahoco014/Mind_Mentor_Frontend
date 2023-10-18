@@ -26,9 +26,7 @@ const ChatContainer = () => {
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                text: inputMessage,
-            }),
+            body: inputMessage,
         };
         
         // POST request
@@ -40,7 +38,7 @@ const ChatContainer = () => {
 
     useEffect(() => {
         fetchAllChats();
-    }, []);
+    }, [inputMessage]);
 
     return (
         <View style={messageStyle.container}>
