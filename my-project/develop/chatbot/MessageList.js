@@ -1,38 +1,49 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import BotMessage from "./BotMessage";
 import UserMessage from "./UserMessage";
 
-const MessageList = ({chat}) => {
+const MessageList = ({ chat }) => {
+  if (!chat || !chat.messages) {
+    return <Text>No messages available</Text>;
+  }
 
-    if (!chat || !chat.messages) {
-        return <Text>No messages available</Text>;
+
+  const style = StyleSheet.create({
+    bot: {
+        color: 'red'
+    },
+    user: {
+        color: 'blue'
     }
+})
 
-    const mappedChats = chat.messages.map((message, index) => {
-        
-        if (message.bot === true) {
-            return (
-                <BotMessage
-                // style={botMessageStyle}
-                message = {message.message}
-                key = {index}/>
-            )
-        } else {
-            return (
-                <UserMessage
-                // style={userMessageStyle}
-                message = {message.message}
-                key = {index}/>
-            )
-        }   
-    })
+  const mappedChats = chat.messages.map((message, index) => {
+    if (message.bot === true) {
+      return (
+        <View 
+        style={style.bot}
+        key={index}>
+          <BotMessage
+        message={message.message} />
+        </View>
+      );
+    } else {
+      return (
+        <View 
+        style={style.user}
+        key={index}>
+          <UserMessage
+          message={message.message} />
+        </View>
+      );
+    }
+  });
 
-    return(<View>
-
-        {mappedChats}
-
+  return (
+    <View>
+      {mappedChats}
     </View>
+  );
+};
 
-    )
-}
 export default MessageList;
