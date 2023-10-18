@@ -1,4 +1,6 @@
 import { View, Text } from "react-native";
+import BotMessage from "./BotMessage";
+import UserMessage from "./UserMessage";
 
 const MessageList = ({chat}) => {
 
@@ -7,15 +9,22 @@ const MessageList = ({chat}) => {
     }
 
     const mappedChats = chat.messages.map((message, index) => {
-        return (
         
-
-
-        <Text key = {index}> 
-            {message.message}
-        </Text>
-
-        )
+        if (message.bot === true) {
+            return (
+                <BotMessage
+                // style={botMessageStyle}
+                message = {message.message}
+                key = {index}/>
+            )
+        } else {
+            return (
+                <UserMessage
+                // style={userMessageStyle}
+                message = {message.message}
+                key = {index}/>
+            )
+        }   
     })
 
     return(<View>
