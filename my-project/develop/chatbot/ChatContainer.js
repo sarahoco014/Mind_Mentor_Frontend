@@ -1,5 +1,5 @@
 import MessageList from "./MessageList";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react';
 import { View, Text, Button, ScrollView, TextInput, TouchableOpacity } from "react-native";
 import messageStyle from "./MessageStyle";
 
@@ -8,6 +8,7 @@ const ChatContainer = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [inputMessage, setInputMessage] = useState('');
+    const scrollViewRef = useRef();
 
     const fetchAllChats = async () => {
         try {
@@ -40,9 +41,22 @@ const ChatContainer = () => {
         fetchAllChats();
     }, [inputMessage]);
 
+    const scrollToBottom = () => {
+        if (scrollViewRef.current) {
+            scrollViewRef.current.scrollToEnd({ animated: true });
+        }
+    }
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [chats]);
+
     return (
         <View style={messageStyle.container}>
-            <ScrollView>
+            <ScrollView
+                ref={scrollViewRef}
+                onContentSizeChange={scrollToBottom} // Scroll to bottom when content size changes
+            >
                 {loading ? <Text>Loading...</Text> : <MessageList chat={chats[0]} />}
             </ScrollView>
             <View style={messageStyle.inputContainer}>
