@@ -7,6 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ResourcesContainer from './develop/resources/ResourcesContainer';
 import ChatContainer from './develop/chatbot/ChatContainer';
+import Emojis from './develop/homepage/Emojis';
+import ContactsModal from './develop/resources/modals/ContactsModal';
 
 
 const Stack = createStackNavigator();
@@ -20,6 +22,8 @@ export default function App() {
             <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
             <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
             <Stack.Screen name = "ChatContainer" component={ChatContainer}/>
+            <Stack.Screen name = "ContactsModal" component={ContactsModal}/>
+
           </Stack.Navigator>
       </NavigationContainer>
 

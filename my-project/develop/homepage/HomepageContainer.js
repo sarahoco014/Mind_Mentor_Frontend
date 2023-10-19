@@ -3,6 +3,7 @@ import { View, Button } from "react-native";
 import Emojis from "./Emojis";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
+import './emoji_images/happy.jpeg'
 
 
 
