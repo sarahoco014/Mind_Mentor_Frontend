@@ -9,6 +9,8 @@ const ChatContainer = () => {
     const [error, setError] = useState('');
     const [inputMessage, setInputMessage] = useState('');
     const scrollViewRef = useRef();
+    const [conversation, setConversation] = useState([]);
+
 
     const fetchAllChats = async () => {
         try {
@@ -24,14 +26,35 @@ const ChatContainer = () => {
     }
 
     const postMessage = async () => {
+
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: inputMessage,
+            body: JSON.stringify({message: inputMessage}),
         };
-        
-        // POST request
-        const response = await fetch("http://10.0.2.2:8080/messages?chatId=1", requestOptions);
+
+        try {
+            // POST request to the backend API
+            const response = await fetch("http://10.0.2.2:8080/messages?chatId=1", requestOptions);
+
+            if (response.status === 201) {
+                const botResponse = await response.json();
+                const botMessage = {
+                    isBot: true, // Set the isBot boolean to indicate the message is from the bot
+                    content: botResponse.text, 
+                };
+
+                setConversation([...conversation, botMessage]);
+
+                
+            } else {
+                console.error('Error occurred:', response.statusText);
+            }
+
+        } catch (error) {
+            console.error('Error ocurred: ', error);
+        }
+
         
         // Clear the input field after sending the message
         setInputMessage('');
@@ -57,7 +80,7 @@ const ChatContainer = () => {
                 ref={scrollViewRef}
                 onContentSizeChange={scrollToBottom} // Scroll to bottom when content size changes
             >
-                {loading ? <Text>Loading...</Text> : <MessageList chat={chats[0]} />}
+                {loading ? <Text>Loading...</Text> : <MessageList chat={conversation} />}
             </ScrollView>
             <View style={messageStyle.inputContainer}>
                 <TextInput
