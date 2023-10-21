@@ -1,11 +1,21 @@
 {
   "expo": {
-    "name": "my-project",
+
+    "splash": {
+
+      "image": "./src/assets/MindMentor.png",
+      "backgroundColor": "#F8F7F2"
+
+    },
+
+
+    "name": "Mind Mentor",
     "slug": "my-project",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ]
+
   },
   "name": "my-project"
 }
