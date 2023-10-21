@@ -136,10 +136,9 @@ export default function App() {
       <Tab.Navigator 
       initialRouteName={homeName}
       screenOptions={({route}) => ({
-        tabBarLabelStyle: {paddingBottom: 10, fontSize:10},
+        tabBarLabelStyle: {paddingBottom: 15, fontSize:10},
 
         tabBarStyle: {padding: 10, height: 70},
-        
         tabBarActiveTintColor: COLORS.primary,
         tabBarIcon: ({focused, color, size}) => {
 

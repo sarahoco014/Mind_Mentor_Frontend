@@ -16,7 +16,7 @@ const ResourcesContainer = () => {
       <Button title="Contacts" onPress={() => setContactsModalOpen(true)} />
 
       {/* Articles Modal */}
-      <Modal visible={articlesModalOpen} animationType="slide">
+      <Modal visible={articlesModalOpen} animationType="fade">
         <View style={styles.modalContent}>
           <ArticlesModal />
           <Button title="Close Modal" onPress={() => setArticlesModalOpen(false)} />
@@ -24,7 +24,7 @@ const ResourcesContainer = () => {
       </Modal>
 
       {/* Videos Modal */}
-      <Modal visible={videosModalOpen} animationType="slide">
+      <Modal visible={videosModalOpen} animationType="fade">
         <View style={styles.modalContent}>
         <VideosModal/>
           <Button title="Close Modal" onPress={() => setVideosModalOpen(false)} />
@@ -32,7 +32,7 @@ const ResourcesContainer = () => {
       </Modal>
 
       {/* Contacts Modal */}
-      <Modal visible={contactsModalOpen} animationType="slide">
+      <Modal visible={contactsModalOpen} animationType="fade">
         <View style={styles.modalContent}>
           <ContactsModal/>
           <Button title="Close Modal" onPress={() => setContactsModalOpen(false)} />
