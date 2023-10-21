@@ -137,6 +137,7 @@ export default function App() {
       initialRouteName={homeName}
       screenOptions={({route}) => ({
         tabBarLabelStyle: {paddingBottom: 15, fontSize:10},
+        
 
         tabBarStyle: {padding: 10, height: 70},
         tabBarActiveTintColor: COLORS.primary,
