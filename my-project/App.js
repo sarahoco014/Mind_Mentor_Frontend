@@ -11,10 +11,14 @@ import Emojis from './develop/homepage/Emojis';
 import ContactsModal from './develop/resources/modals/ContactsModal';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {COLORS, SIZES} from './src/constants/theme';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
+const homeName = 'HomepageContainer';
+const resourcesName = 'ResourcesContainer';
+const Tab = createBottomTabNavigator();
 
 const Slides = [
   {
@@ -40,6 +44,7 @@ const Slides = [
   }
 
 ]
+
 
 
 export default function App() {
@@ -115,22 +120,50 @@ export default function App() {
     )
   }
 
+
+
+
+
   return (
 
-          <NavigationContainer>
-          <Stack.Navigator initialRouteName='HomepageContainer'> 
-            <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
-            <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
-            <Stack.Screen name = "ChatContainer" component={ChatContainer}/>
-            <Stack.Screen name = "ContactsModal" component={ContactsModal}/>
-
-          </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName={homeName}>
+        <Tab.Screen name = {homeName} component={HomepageContainer}/>
+        <Tab.Screen name = {resourcesName} component={ResourcesContainer}/>
+      </Tab.Navigator>
+    </NavigationContainer>
 
 
+    
+
+
+
+
+      //     <NavigationContainer>
+      //     <Stack.Navigator initialRouteName='HomepageContainer'> 
+      //       <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
+      //       <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
+      //       <Stack.Screen name = "ChatContainer" component={ChatContainer}/>
+      //       <Stack.Screen name = "ContactsModal" component={ContactsModal}/>
+
+      //     </Stack.Navigator>
+      // </NavigationContainer>
 
   );
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
