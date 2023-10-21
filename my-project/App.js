@@ -16,8 +16,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 // const Stack = createStackNavigator();
-const homeName = 'HomepageContainer';
+const homeName = 'Home';
 const resourcesName = 'ResourcesContainer';
+const chatName = 'ChatContainer'
+
 const Tab = createBottomTabNavigator();
 
 const Slides = [
@@ -127,9 +129,14 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Tab.Navigator initialRouteName={homeName}>
+      <Tab.Navigator 
+      initialRouteName={homeName}
+     
+      >
         <Tab.Screen name = {homeName} component={HomepageContainer}/>
+        <Tab.Screen name = {chatName} component={ChatContainer}/>
         <Tab.Screen name = {resourcesName} component={ResourcesContainer}/>
+
       </Tab.Navigator>
     </NavigationContainer>
 
