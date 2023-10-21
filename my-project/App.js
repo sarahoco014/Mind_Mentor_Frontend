@@ -12,6 +12,8 @@ import ContactsModal from './develop/resources/modals/ContactsModal';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {COLORS, SIZES} from './src/constants/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+
 
 
 
@@ -126,11 +128,36 @@ export default function App() {
 
 
 
+
+
   return (
 
     <NavigationContainer>
       <Tab.Navigator 
       initialRouteName={homeName}
+      screenOptions={({route}) => ({
+        tabBarLabelStyle: {paddingBottom: 10, fontSize:10},
+
+        tabBarStyle: {padding: 10, height: 70},
+        
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarIcon: ({focused, color, size}) => {
+
+          let iconName;
+          let routeName = route.name;
+
+          if (routeName === homeName) {
+            iconName = focused ? 'home-sharp' : 'home-outline';
+          } else if (routeName === resourcesName) {
+            iconName = focused ? 'book' : 'book-outline';
+          } else if (routeName === chatName) {
+            iconName = focused ? 'chatbubbles' : 'chatbubbles-outline'
+          }
+
+          return <Ionicons name={iconName} size={size} color={color}/>
+
+        }
+      })}
      
       >
         <Tab.Screen name = {homeName} component={HomepageContainer}/>
