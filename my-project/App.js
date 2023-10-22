@@ -13,6 +13,8 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import {COLORS, SIZES} from './src/constants/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import { useFonts, Montserrat_600SemiBold, Montserrat_300Light } from '@expo-google-fonts/montserrat';
+import {  Karla_400Regular, Karla_400Regular_Italic } from '@expo-google-fonts/karla';
 
 
 
@@ -52,7 +54,21 @@ const Slides = [
 
 
 export default function App() {
+
   const [showHomePage, setShowHomePage] = useState (false)
+
+  let [fontsLoaded] = useFonts({
+    Montserrat_600SemiBold,
+    Montserrat_300Light,
+    Karla_400Regular,
+    Karla_400Regular_Italic,
+    
+  });
+  if (!fontsLoaded) {
+    return null;
+  }
+
+
 
   const buttonLabel = (label) => {
     return(
@@ -63,6 +79,8 @@ export default function App() {
           color: COLORS.title,
           fontWeight: '600',
           fontSize: SIZES.h4,
+          fontFamily: 'Montserrat_600SemiBold',
+          
 
         }}>
           {label}
@@ -92,17 +110,19 @@ export default function App() {
             resizeMode="contain"
             />
             <Text style={{
-              fontWeight: "bold",
+             
               color: COLORS.title,
               fontSize: SIZES.h1,
               textAlign: 'center',
+              fontFamily: 'Montserrat_600SemiBold',
             }}>
               {item.title}
             </Text>
             <Text style={{
               textAlign: 'center',
               paddingTop: 5,
-              color: COLORS.title
+              color: COLORS.title,
+              fontFamily: 'Karla_400Regular'
             }}>
               {item.description}
             </Text>
