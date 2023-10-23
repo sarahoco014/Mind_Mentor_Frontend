@@ -15,14 +15,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts, Montserrat_600SemiBold, Montserrat_300Light } from '@expo-google-fonts/montserrat';
 import {  Karla_400Regular, Karla_400Regular_Italic } from '@expo-google-fonts/karla';
-
-
+import MoodCalendarScreen from './develop/moodcalendar/MoodCalendarScreen.js';
+import { MoodProvider } from './develop//moodcalendar/MoodContext';
 
 
 // const Stack = createStackNavigator();
 const homeName = 'Home';
 const resourcesName = 'ResourcesContainer';
-const chatName = 'ChatContainer'
+const chatName = 'ChatContainer';
+const calendarName = 'Mood Calendar';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,8 +52,6 @@ const Slides = [
 
 ]
 
-
-
 export default function App() {
 
   const [showHomePage, setShowHomePage] = useState (false)
@@ -67,8 +66,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
-
 
   const buttonLabel = (label) => {
     return(
@@ -144,80 +141,44 @@ export default function App() {
     )
   }
 
-
-
-
-
-
-
   return (
-
+    <MoodProvider>
     <NavigationContainer>
-      <Tab.Navigator 
-      initialRouteName={homeName}
-      screenOptions={({route}) => ({
-        tabBarLabelStyle: {paddingBottom: 15, fontSize:10},
-        
+        <Tab.Navigator 
+            initialRouteName={homeName}
+            screenOptions={({route}) => ({
+                tabBarLabelStyle: {paddingBottom: 15, fontSize:10},
+                tabBarStyle: {padding: 10, height: 70},
+                tabBarActiveTintColor: COLORS.primary,
+                tabBarIcon: ({focused, color, size}) => {
+                    let iconName;
+                    let routeName = route.name;
 
-        tabBarStyle: {padding: 10, height: 70},
-        tabBarActiveTintColor: COLORS.primary,
-        tabBarIcon: ({focused, color, size}) => {
+                    if (routeName === homeName) {
+                        iconName = focused ? 'home-sharp' : 'home-outline';
+                    } else if (routeName === resourcesName) {
+                        iconName = focused ? 'book' : 'book-outline';
+                    } else if (routeName === chatName) {
+                        iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
+                    } else if (routeName === calendarName) {
+                        iconName = focused ? 'calendar-sharp' : 'calendar-outline';
+                    }
 
-          let iconName;
-          let routeName = route.name;
-
-          if (routeName === homeName) {
-            iconName = focused ? 'home-sharp' : 'home-outline';
-          } else if (routeName === resourcesName) {
-            iconName = focused ? 'book' : 'book-outline';
-          } else if (routeName === chatName) {
-            iconName = focused ? 'chatbubbles' : 'chatbubbles-outline'
-          }
-
-          return <Ionicons name={iconName} size={size} color={color}/>
-
-        }
-      })}
-     
-      >
-        <Tab.Screen name = {homeName} component={HomepageContainer}/>
-        <Tab.Screen name = {chatName} component={ChatContainer}/>
-        <Tab.Screen name = {resourcesName} component={ResourcesContainer}/>
-
-      </Tab.Navigator>
+                    return <Ionicons name={iconName} size={size} color={color}/>
+                }
+            })}
+        >
+            <Tab.Screen name={homeName} component={HomepageContainer}/>
+            <Tab.Screen name={chatName} component={ChatContainer}/>
+            <Tab.Screen name={resourcesName} component={ResourcesContainer}/>
+            <Tab.Screen name={calendarName} component={MoodCalendarScreen}/> 
+        </Tab.Navigator>
     </NavigationContainer>
+    </MoodProvider>
+);
 
-
-    
-
-
-
-
-      //     <NavigationContainer>
-      //     <Stack.Navigator initialRouteName='HomepageContainer'> 
-      //       <Stack.Screen name = "HomepageContainer" component={HomepageContainer}/>
-      //       <Stack.Screen name = "ResourcesContainer" component={ResourcesContainer}/>
-      //       <Stack.Screen name = "ChatContainer" component={ChatContainer}/>
-      //       <Stack.Screen name = "ContactsModal" component={ContactsModal}/>
-
-      //     </Stack.Navigator>
-      // </NavigationContainer>
-
-  );
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 const styles = StyleSheet.create({
   container: {

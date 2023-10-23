@@ -2,10 +2,12 @@ import React from "react";
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Emojis = () => {
+const Emojis = ({ onEmojiPress }) => {
     const navigation = useNavigation();
 
     const handleEmojiPress = (emoji) => {
+        onEmojiPress && onEmojiPress(emoji);
+    
         if (emoji === 'happy') {
             navigation.navigate('ResourcesContainer');
         } else if (emoji === 'mid') {
@@ -13,7 +15,7 @@ const Emojis = () => {
         } else if (emoji === 'sad') {
             navigation.navigate('ResourcesContainer');
         }
-    }
+    };    
 
     return (
         <View style={styles.container}>
