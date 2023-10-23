@@ -39,8 +39,6 @@ const HomepageContainer = ({ navigation }) => {
         setMoods(newMoods);
     };
     
-    
-
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('ChatContainer')}>

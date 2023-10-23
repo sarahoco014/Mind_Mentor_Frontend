@@ -173,6 +173,7 @@ export default function App() {
             <Tab.Screen name={resourcesName} component={ResourcesContainer}/>
             <Tab.Screen name={calendarName} component={MoodCalendarScreen}/> 
         </Tab.Navigator>
+        
     </NavigationContainer>
     </MoodProvider>
 );
