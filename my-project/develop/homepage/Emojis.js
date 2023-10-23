@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Image } from "react-native";
+import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Emojis = () => {
@@ -16,29 +16,41 @@ const Emojis = () => {
     }
 
     return (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <TouchableOpacity onPress={() => handleEmojiPress('happy')}>
-
-                {/* ///Users/rohaibahmed/Documents/Hackathon/Frontend/Mind_Mentor_Frontend/my-project */}
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.emojiContainer} onPress={() => handleEmojiPress('happy')}>
                 <Image
                     source={require('../../emoji_images/happy.jpeg')}
-                    style={{ width: 100, height: 100 }}
+                    style={styles.emojiImage}
                 />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleEmojiPress('mid')}>
+            <TouchableOpacity style={styles.emojiContainer} onPress={() => handleEmojiPress('mid')}>
                 <Image
                     source={require('../../emoji_images/mid.png')}
-                    style={{ width: 100, height: 100 }}
+                    style={styles.emojiImage}
                 />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleEmojiPress('sad')}>
+            <TouchableOpacity style={styles.emojiContainer} onPress={() => handleEmojiPress('sad')}>
                 <Image
                     source={require('../../emoji_images/sad.png')}
-                    style={{ width: 100, height: 100 }}
+                    style={styles.emojiImage}
                 />
             </TouchableOpacity>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    emojiContainer: {
+        marginHorizontal: 10,
+    },
+    emojiImage: {
+        width: 75,
+        height: 75,
+    },
+});
 
 export default Emojis;
