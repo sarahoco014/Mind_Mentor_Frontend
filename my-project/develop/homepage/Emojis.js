@@ -11,7 +11,7 @@ const Emojis = () => {
         } else if (emoji === 'mid') {
             navigation.navigate('ChatContainer');
         } else if (emoji === 'sad') {
-            navigation.navigate('ContactsModal');
+            navigation.navigate('ResourcesContainer');
         }
     }
 
