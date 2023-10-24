@@ -46,6 +46,7 @@ const MoodCalendarScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.logMoodText}>Log your mood today and track how you're feeling</Text>
             <Calendar
                 markedDates={moods}
                 markingType={'custom'}
@@ -76,6 +77,9 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         textAlign: 'center',
     },
+    logMoodText: {
+        padding: 10
+    }
 });
 
 export default MoodCalendarScreen;

@@ -9,11 +9,11 @@ const Emojis = ({ onEmojiPress }) => {
         onEmojiPress && onEmojiPress(emoji);
     
         if (emoji === 'happy') {
-            navigation.navigate('ResourcesContainer');
+            navigation.navigate('Mood Calendar');
         } else if (emoji === 'mid') {
-            navigation.navigate('ChatContainer');
+            navigation.navigate('Mood Calendar');
         } else if (emoji === 'sad') {
-            navigation.navigate('ResourcesContainer');
+            navigation.navigate('Mood Calendar');
         }
     };    
 

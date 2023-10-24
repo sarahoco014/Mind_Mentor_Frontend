@@ -21,8 +21,8 @@ import { MoodProvider } from './develop//moodcalendar/MoodContext';
 
 // const Stack = createStackNavigator();
 const homeName = 'Home';
-const resourcesName = 'ResourcesContainer';
-const chatName = 'ChatContainer';
+const resourcesName = 'Resources';
+const chatName = 'Chat';
 const calendarName = 'Mood Calendar';
 
 const Tab = createBottomTabNavigator();
