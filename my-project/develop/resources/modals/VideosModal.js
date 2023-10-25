@@ -13,14 +13,14 @@ const VideosModal = () => {
         <Pressable style={styles.buttons} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=BVZS8XqNyEY&ab_channel=GreatMeditation')}><Text>Learn More</Text></Pressable>
       </View>
       <View style={styles.video2}>
-      <Text style={styles.titles}>Title</Text>
-        <Text style={styles.summaryText}>Summary.</Text>
-        <Pressable style={styles.buttons} onPress={() => Linking.openURL('https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/work-life-balance')}><Text>Learn More</Text></Pressable>
+      <Text style={styles.titles}>Coping with Stress</Text>
+        <Text style={styles.summaryText}>2 minute video suggesting strategies for coping with stress.</Text>
+        <Pressable style={styles.buttons} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=TK5KOXLT15g&ab_channel=GCFLearnFree')}><Text>Learn More</Text></Pressable>
       </View>
       <View style={styles.video3}>
-      <Text style={styles.titles}>Title</Text>
-        <Text style={styles.summaryText}>Summary</Text>
-        <Pressable style={styles.buttons} onPress={() => Linking.openURL('https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/friendship-and-mental-health')}><Text>Learn More</Text></Pressable>
+      <Text style={styles.titles}>Friends Helping Friends</Text>
+        <Text style={styles.summaryText}>Sometimes asking for help and getting mental health support can feel scary or overwhelming. This video talks about getting mental health support, even if it feels hard, it can be helpful.</Text>
+        <Pressable style={styles.buttons} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jlLIBuSwiMc&ab_channel=APAHelpCenter')}><Text>Learn More</Text></Pressable>
       </View>
     </View>
   );
