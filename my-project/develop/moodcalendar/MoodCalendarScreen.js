@@ -58,6 +58,8 @@ const MoodCalendarScreen = () => {
                 }}
                 theme={{
                     monthTextColor: 'black', // change this to your desired color
+                    todayTextColor: COLORS.orchidpink, // sets the color of today's date
+                    arrowColor: COLORS.orchidpink, 
                 }}
             />
             </View>
@@ -84,8 +86,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     logMoodText: {
-        padding: 20,
-        fontSize: 15
+        paddingTop: 10,
+        paddingLeft: 25,
+        fontSize: 15,
+        backgroundColor: COLORS.orchidpink
 
     }
 });
