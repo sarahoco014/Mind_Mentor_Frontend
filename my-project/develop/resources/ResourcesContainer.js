@@ -70,6 +70,7 @@ const ResourcesContainer = () => {
 const styles = StyleSheet.create({
   
   container:{
+    paddingTop: 40,
     // backgroundColor: 'white',
   },
 
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     lineHeight: 21,
-    fontWeight: 'bold',
+   
     letterSpacing: 0.25,
     color: COLORS.jet,
     fontFamily: 'Montserrat_600SemiBold'

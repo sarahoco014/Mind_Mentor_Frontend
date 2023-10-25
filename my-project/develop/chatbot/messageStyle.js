@@ -3,6 +3,7 @@ import {COLORS, SIZES} from '../../src/constants/theme';
 
 const messageStyle = StyleSheet.create({
   container: {
+    paddingTop: 20,
     flex: 1,
     backgroundColor: COLORS.babypowder, // Background color of the chat container
   },

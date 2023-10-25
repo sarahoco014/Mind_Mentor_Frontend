@@ -4,11 +4,15 @@ import { Calendar } from 'react-native-calendars';
 import { useMood } from './MoodContext'; 
 import { useState } from 'react';
 import MoodSelectionModal from './MoodSelectionModal'; 
-import { COLORS } from "../../src/constants/theme";
+import { COLORS, SIZES } from "../../src/constants/theme";
+import { useFonts, Montserrat_600SemiBold, Montserrat_300Light } from '@expo-google-fonts/montserrat';
+import {  Karla_400Regular, Karla_400Regular_Italic } from '@expo-google-fonts/karla';
 
 
 const MoodCalendarScreen = () => {
+
     const { moods, setMoods } = useMood();
+
 
     const [selectedDate, setSelectedDate] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -47,8 +51,9 @@ const MoodCalendarScreen = () => {
 
     return (
         <View style={styles.container}>
+          
             <Text style={styles.logMoodText}>Log your mood today and track how you're feeling!</Text>
-            <View style={{backgroundColor: COLORS.orchidpink, marginHorizontal: -10, paddingTop: 10, borderRadius: 10}}>
+            <View style={{backgroundColor: COLORS.orchidpink, marginHorizontal: -10, paddingTop: 50, borderRadius: 10}}>
             <Calendar
                 markedDates={moods}
                 markingType={'custom'}
@@ -82,15 +87,17 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         marginBottom: 20,
         textAlign: 'center',
     },
     logMoodText: {
-        paddingTop: 10,
+        paddingTop: 25,
         paddingLeft: 25,
-        fontSize: 15,
-        backgroundColor: COLORS.orchidpink
+        paddingRight: 25,
+        fontSize: SIZES.h2,
+        backgroundColor: COLORS.orchidpink,
+        textAlign: 'center',
     },
 });
 

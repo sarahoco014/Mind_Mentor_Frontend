@@ -44,11 +44,11 @@ const HomepageHeader = () => {
         <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
             <StatusBar translucent={false} backgroundColor={COLORS.primary} />
             <View style = {styles.header}>
-                <Ionicons name='md-heart-outline'size={28} color={COLORS.jet}/>
-                <Ionicons name='settings-outline' size={28} color={COLORS.jet}/>
+                {/* <Ionicons name='md-heart-outline'size={28} color={COLORS.jet}/>
+                <Ionicons name='settings-outline' size={28} color={COLORS.jet}/> */}
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={{backgroundColor: COLORS.primary, height: 120}}>
+                <View style={{backgroundColor: COLORS.primary, height: 100}}>
                     <Text style={styles.headerTitle}>Welcome Back,</Text>
                     <Text style={styles.headerTitle}>{user.firstName}</Text>
                 </View>
