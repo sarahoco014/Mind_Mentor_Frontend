@@ -26,9 +26,10 @@ const MessageList = ({ chat }) => {
     }
   });
 
-  return (
-    <View>
-      {mappedChats}
+    return(<View>
+
+        {mappedChats}
+
     </View>
   );
 };
