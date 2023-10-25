@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import BotMessage from "./BotMessage";
 import UserMessage from "./UserMessage";
-import messageStyle from "./MessageStyle";
+import messageStyle from "./messageStyle";
 
 const MessageList = ({ chat }) => {
   if (!chat || !chat.messages) {
