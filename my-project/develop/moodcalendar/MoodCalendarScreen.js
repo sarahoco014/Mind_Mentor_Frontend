@@ -4,6 +4,7 @@ import { Calendar } from 'react-native-calendars';
 import { useMood } from './MoodContext'; 
 import { useState } from 'react';
 import MoodSelectionModal from './MoodSelectionModal'; 
+import { COLORS } from "../../src/constants/theme";
 
 
 const MoodCalendarScreen = () => {
@@ -46,7 +47,8 @@ const MoodCalendarScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.logMoodText}>Log your mood today and track how you're feeling</Text>
+            <Text style={styles.logMoodText}>Log your mood today and track how you're feeling!</Text>
+            <View style={{backgroundColor: COLORS.orchidpink, marginHorizontal: -10, paddingTop: 10, borderRadius: 10}}>
             <Calendar
                 markedDates={moods}
                 markingType={'custom'}
@@ -54,7 +56,11 @@ const MoodCalendarScreen = () => {
                     setSelectedDate(day.dateString);
                     setIsModalVisible(true);
                 }}
+                theme={{
+                    monthTextColor: 'black', // change this to your desired color
+                }}
             />
+            </View>
             {isModalVisible && (
                 <MoodSelectionModal 
                     date={selectedDate}
@@ -69,7 +75,7 @@ const MoodCalendarScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5', 
+        backgroundColor: 'white', 
     },
     title: {
         fontSize: 24,
@@ -78,7 +84,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     logMoodText: {
-        padding: 10
+        padding: 20,
+        fontSize: 15
+
     }
 });
 
