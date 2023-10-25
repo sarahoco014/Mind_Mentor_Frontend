@@ -1,7 +1,7 @@
 import MessageList from "./MessageList";
 import { useState, useEffect, useRef } from 'react';
 import { View, Text, Button, ScrollView, TextInput, TouchableOpacity } from "react-native";
-import messageStyle from "./messageStyle";
+import messageStyle from "./MessageStyle";
 
 const ChatContainer = () => {
     const [chats, setChats] = useState([]);
