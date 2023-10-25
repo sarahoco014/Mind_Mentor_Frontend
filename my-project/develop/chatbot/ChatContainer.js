@@ -31,8 +31,8 @@ const ChatContainer = () => {
         };
         
         // POST request
+        // const response = await fetch("http://localhost:8080localhost:8080/messages?chatId=1", requestOptions);
         const response = await fetch("http://10.0.2.2:8080/messages?chatId=1", requestOptions);
-        
         // Clear the input field after sending the message
         setInputMessage('');
     }
