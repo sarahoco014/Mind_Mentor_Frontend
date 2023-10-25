@@ -150,6 +150,7 @@ export default function App() {
                 tabBarLabelStyle: {paddingBottom: 15, fontSize:10},
                 tabBarStyle: {padding: 10, height: 70},
                 tabBarActiveTintColor: COLORS.primary,
+                headerShown: false,
                 tabBarIcon: ({focused, color, size}) => {
                     let iconName;
                     let routeName = route.name;
