@@ -6,18 +6,22 @@ const ContactsModal = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>CONTACTS</Text>
+      <View style={styles.contactRow}>
       <Text style={styles.contactText}>
-        <Pressable onPress={() => Linking.openURL('tel:116 123')}><FontAwesome name="phone" size={20} color="green" /></Pressable> Samaritans: 116 123
-      </Text>
+      Samaritans: 116 123</Text><Pressable onPress={() => Linking.openURL('tel:116 123')}><FontAwesome name="phone" size={30} color="pink" style={styles.contactPhone} /></Pressable>
+      </View>
+      <View style={styles.contactRow}>
       <Text style={styles.contactText}>
-      <Pressable onPress={() => Linking.openURL('tel:0300 304 7000')}><FontAwesome name="phone" size={20} color="green" /></Pressable>SANEline: 0300 304 7000
-      </Text>
+      SANEline: 0300 304 7000 </Text><Pressable onPress={() => Linking.openURL('tel:0300 304 7000')}><FontAwesome name="phone" size={30} color="pink"  style={styles.contactPhone}/></Pressable>
+      </View>
+      <View style={styles.contactRow}>
       <Text style={styles.contactText}>
-      <Pressable onPress={() => Linking.openURL('tel:0800 58 58 58')}><FontAwesome name="phone" size={20} color="green" /></Pressable> Campaign Against Living Miserably (CALM): 0800 58 58 58 (5pm–midnight every day)
-      </Text>
+      Campaign Against Living Miserably (CALM): 0800 58 58 58 (5pm–midnight every day)</Text><Pressable onPress={() => Linking.openURL('tel:0800 58 58 58')}><FontAwesome name="phone" size={30} color="pink" style={styles.contactPhone}/></Pressable> 
+      </View>
+      <View style={styles.contactRow}>
       <Text style={styles.contactText}>
-      <Pressable onPress={() => Linking.openURL('tel:0800 689 5652')}><FontAwesome name="phone" size={20} color="green" /></Pressable>National Suicide Prevention Helpline UK: 0800 689 5652 (6pm to midnight every day)
-      </Text>
+      National Suicide Prevention Helpline UK: 0800 689 5652 (6pm to midnight every day)</Text><Pressable onPress={() => Linking.openURL('tel:0800 689 5652')}><FontAwesome name="phone" size={30} color="pink" style={styles.contactPhone}/></Pressable>
+      </View>
     </View>
   );
 }
@@ -33,13 +37,31 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+    justifyContent: "center",
+
+    textAlign: "center"
+    
   },
   contactText: {
     fontSize: 16,
     marginBottom: 5,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: "space-between",
+    textAlign: "left",
+    marginRight: 35,
+    flex: 3
   },
+  contactPhone: {
+    flex: 1,
+    alignItems: "flex-end"
+    
+  },
+  contactRow: {
+    flexDirection: 'row',
+    marginBottom: 10
+  }
+
 });
 
 export default ContactsModal;

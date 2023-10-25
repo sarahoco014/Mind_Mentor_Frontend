@@ -70,7 +70,7 @@ const ResourcesContainer = () => {
 const styles = StyleSheet.create({
   
   container:{
-    backgroundColor: COLORS.babypowder,
+    // backgroundColor: 'white',
   },
 
   modalContent: {
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 50,
+    padding: 60,
     margin: 30,
     borderRadius: 20,
     elevation: 3,
