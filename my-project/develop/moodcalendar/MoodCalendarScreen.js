@@ -62,12 +62,13 @@ const MoodCalendarScreen = () => {
                     arrowColor: COLORS.orchidpink, 
                 }}
             />
-            </View>
+            </View >
             {isModalVisible && (
                 <MoodSelectionModal 
                     date={selectedDate}
                     onClose={() => setIsModalVisible(false)}
                     onMoodSelected={handleMoodSelectionForDate}
+                    
                 />
             )}
         </View>
@@ -90,8 +91,7 @@ const styles = StyleSheet.create({
         paddingLeft: 25,
         fontSize: 15,
         backgroundColor: COLORS.orchidpink
-
-    }
+    },
 });
 
 export default MoodCalendarScreen;
