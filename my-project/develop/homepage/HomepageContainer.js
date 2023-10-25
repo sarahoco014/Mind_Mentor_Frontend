@@ -41,10 +41,10 @@ const HomepageContainer = ({ navigation }) => {
     
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('ChatContainer')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Chat')}>
                 <Text style={styles.buttonText}>Chat</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('ResourcesContainer')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Resources')}>
                 <Text style={styles.buttonText}>Resources</Text>
             </TouchableOpacity>
             <View style={styles.emojisAndTextContainer}>
